@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".BuscarFragment">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tBusqueda"
+        android:textSize="24dp"
+        android:layout_gravity="center_horizontal"
+        android:padding="10dp"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/nombre"
+        android:textSize="24dp"
+        android:id="@+id/eBuscar"
+        android:padding="10dp"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/buscar"
+        android:textSize="24dp"
+        android:id="@+id/bBuscar"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tCodigo"
+        android:padding="10dp"
+        android:textSize="24dp"
+        android:hint="@string/codigo"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tNombre"
+        android:padding="10dp"
+        android:textSize="24dp"
+        android:hint="@string/nombre"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tCantidad"
+        android:textSize="24dp"
+        android:padding="10dp"
+        android:hint="@string/cantidad"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tPrecio"
+        android:padding="10dp"
+        android:textSize="24dp"
+        android:hint="@string/precio"/>
+
+
+</LinearLayout>
