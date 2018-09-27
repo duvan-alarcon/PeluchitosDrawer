@@ -18,7 +18,7 @@
         android:layout_height="wrap_content"
         android:hint="@string/nombre"
         android:textSize="24dp"
-        android:id="@+id/tNombre" />
+        android:id="@+id/eNombre" />
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
