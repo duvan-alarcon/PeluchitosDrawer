@@ -1,4 +1,4 @@
-package com.example.duvan.peluchitosdrawer;
+package com.example.duvan.peluchitosdrawer.model;
 
 public class Peluchito {
     private int codigo, precio, cantidad;

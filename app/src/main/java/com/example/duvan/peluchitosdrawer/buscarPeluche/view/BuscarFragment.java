@@ -1,4 +1,4 @@
-package com.example.duvan.peluchitosdrawer;
+package com.example.duvan.peluchitosdrawer.buscarPeluche.view;
 
 
 import android.os.Bundle;
@@ -9,17 +9,25 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.example.duvan.peluchitosdrawer.Comunicador;
+import com.example.duvan.peluchitosdrawer.R;
+import com.example.duvan.peluchitosdrawer.buscarPeluche.presenter.BuscarPresenter;
+import com.example.duvan.peluchitosdrawer.buscarPeluche.presenter.IBuscarPresenter;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class BuscarFragment extends Fragment {
+public class BuscarFragment extends Fragment implements IBuscarFragment{
 
     private EditText eBuscar;
     private Button bBuscar;
     private TextView tNombre, tCodigo, tCantidad, tPrecio;
-    Comunicador interfaz;
+    //Comunicador interfaz;
+    private IBuscarPresenter buscarPresenter;
+
 
 
     public BuscarFragment() {
@@ -32,6 +40,8 @@ public class BuscarFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_buscar, container, false);
+        buscarPresenter = new BuscarPresenter(this);
+
 
         eBuscar= view.findViewById(R.id.eBuscar);
         tNombre= view.findViewById(R.id.tNombre);
@@ -51,7 +61,7 @@ public class BuscarFragment extends Fragment {
         bBuscar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                interfaz.enviarDatosBuscar(eBuscar.getText().toString());
+                buscarPresenter.enviarDatosBuscar(eBuscar.getText().toString());
 
             }
         });
@@ -60,4 +70,8 @@ public class BuscarFragment extends Fragment {
     }
 
 
+    @Override
+    public void mostrarError(String errorMessage) {
+        Toast.makeText(getContext(),errorMessage, Toast.LENGTH_SHORT).show();
+    }
 }

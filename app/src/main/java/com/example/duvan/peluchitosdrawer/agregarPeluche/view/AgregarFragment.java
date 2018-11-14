@@ -1,4 +1,4 @@
-package com.example.duvan.peluchitosdrawer;
+package com.example.duvan.peluchitosdrawer.agregarPeluche.view;
 
 
 import android.app.Activity;
@@ -9,16 +9,22 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
+
+import com.example.duvan.peluchitosdrawer.Comunicador;
+import com.example.duvan.peluchitosdrawer.R;
+import com.example.duvan.peluchitosdrawer.agregarPeluche.presenter.AgregarPresenter;
+import com.example.duvan.peluchitosdrawer.agregarPeluche.presenter.IAgregarPresenter;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class AgregarFragment extends Fragment {
+public class AgregarFragment extends Fragment implements IAgregarFragment {
 
     private EditText eCodigo, eNombre, eCantidad, ePrecio;
     private Button bGuardar;
-    Comunicador interfaz;
+    private IAgregarPresenter agregarPresenter;
 
     public AgregarFragment() {
         // Required empty public constructor
@@ -30,6 +36,7 @@ public class AgregarFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_agregar, container, false);
+        agregarPresenter= new AgregarPresenter (this);
 
         eCodigo= view.findViewById(R.id.eCodigo);
         eNombre= view.findViewById(R.id.eNombre);
@@ -40,7 +47,7 @@ public class AgregarFragment extends Fragment {
         bGuardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                interfaz.enviarDatos(Integer.parseInt(eCodigo.getText().toString()),
+                agregarPresenter.enviarDatosAgregar(Integer.parseInt(eCodigo.getText().toString()),
                         (eNombre.getText().toString()),
                         (Integer.parseInt(eCantidad.getText().toString())),
                         (Integer.parseInt(ePrecio.getText().toString())));
@@ -53,9 +60,10 @@ public class AgregarFragment extends Fragment {
 
     }
 
+
+
     @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
-        interfaz = (Comunicador) activity;
+    public void mostrarError(String errorMessage) {
+        Toast.makeText(getContext(), errorMessage, Toast.LENGTH_SHORT).show();
     }
 }

@@ -25,4 +25,5 @@
     <string name="tInventario">Inventario de Peluches</string>
     <string name="tInventarioPeluches">Inventario de Peluches</string>
     <string name="tListaPeluches">Lista de Peluches</string>
+    <string name="bInventario">Inventario</string>
 </resources>
